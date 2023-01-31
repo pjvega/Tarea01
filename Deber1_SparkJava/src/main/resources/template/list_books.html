@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table  >
+        <tbody>
+        <tr>
+            <th>title</th>
+            <th>isbn</th>
+            <th>price</th>
+        </tr>
+        <tr th:each="book: ${books}">
+            <td><p th:text="${book.title}"></p></td>
+            <td><p th:text="${book.isbn}"></p></td>
+            <td><p th:text="${book.price}"></p></td>
+            <td>
+
+                <a  th:href="@{book/borrar/{id}(id=${book.id})}" >Eliminar</a>
+            </td>
+
+            <td>
+                <a th:href="@{book/update_form/{id}(id=${book.id})}" >Actualizar</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <a th:href="'/book/form_add'" class="btn btn-primary">Insertar</a>
+    <br>
+    <a th:href="'/authors'" class="btn btn-primary">Listar Authors</a>
+
+</form>
+</body>
+
+</html>

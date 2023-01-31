@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  action="/author/modificar" th:object="${author}" method="POST">
+    <div>
+        <input type="hidden" th:value="*{id}" name="id_current" id="id_current"/>
+    </div>
+    <div >
+        <label>Nombre: </label>
+        <input type="text" name="firstName"  th:value="*{firstName}" >
+    </div>
+    <div >
+        <label>Apellido: </label>
+        <input type="text" name="lastName" th:value="*{lastName}" >
+    </div>
+
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

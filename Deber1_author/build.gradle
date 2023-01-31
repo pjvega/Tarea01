@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'io.quarkus' version '2.16.0.Final'
+    id "io.freefair.lombok" version "6.6.1"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+
+    /*implementation enforcedPlatform("io.quarkus.platform:quarkus-bom:${project.quarkusVersion}")
+    implementation group:'io.quarkus', name:'quarkus-resteasy-jackson'
+    implementation group:'io.quarkus', name:'quarkus-arc'
+    implementation group:'io.quarkus', name:'quarkus-smallrye-health'
+    implementation group:'io.quarkiverse.config', name:'quarkus-config-consul'
+    implementation 'io.quarkus:quarkus-resteasy-jaxb'
+    implementation 'io.quarkus:quarkus-resteasy'
+    //DB: postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.1'
+    implementation('io.quarkus:quarkus-hibernate-orm-panache')*/
+
+    implementation enforcedPlatform("io.quarkus:quarkus-bom:2.16.0.Final")
+    implementation 'io.quarkus:quarkus-resteasy-jaxb'
+    implementation 'io.quarkus:quarkus-resteasy'
+    // Hibernate ORM specific dependencies
+    implementation("io.quarkus:quarkus-hibernate-orm-panache")
+    // JDBC driver dependencies
+    implementation("io.quarkus:quarkus-jdbc-postgresql")
+    //implementation 'org.glassfish.jersey.media:jersey-media-json-binding'
+    implementation("io.quarkus:quarkus-resteasy-jackson")
+
+}
+
+
+
